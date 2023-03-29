@@ -1,4 +1,4 @@
-package application;
+package tr.com.yusuf.test;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
