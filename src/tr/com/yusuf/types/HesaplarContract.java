@@ -35,7 +35,6 @@ public class HesaplarContract {
 	public void setSifre(String sifre){
 		this.sifre = sifre;
 	}
-	
 	@Override 
 	public String toString(){
 		return String.format("%d %s %d %d %s");
