@@ -35,6 +35,12 @@ public class HesaplarContract {
 	public void setSifre(String sifre){
 		this.sifre = sifre;
 	}
+	public int getPersonelId(){
+		return this.personelId;
+	}
+	public void setPersonelId(int personelId){
+		this.personelId = personelId;
+	}
 	@Override 
 	public String toString(){
 		return String.format("%d %s %d %d %s");

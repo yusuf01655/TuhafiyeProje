@@ -37,4 +37,8 @@ public class StokContract {
 	public void setFiyat(float fiyat){
 		this.fiyat = fiyat;
 	}
+	@Override
+	public String toString(){
+		return String.format("%d %s %d %s %f", id, ad, kategoriId, tarih, fiyat);
+	}
 }
