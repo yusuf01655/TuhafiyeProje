@@ -1,5 +1,16 @@
 package tr.com.yusuf.interfaces;
 
-public interface DALInterfaces {
+import java.util.List;
+
+public interface DALInterfaces<T> {
+	void ekle(T entity);
+
+	List<T> hepsiniAl();
+
+	T sil(T entity);
+
+	void guncelle(T entity);
+
+	List<T> idIleAl(int id);
 
 }
