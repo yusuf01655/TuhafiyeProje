@@ -2,6 +2,6 @@
 	
 <?import javafx.scene.layout.AnchorPane?>
 	
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.test.SampleController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
 	<!-- TODO Add Nodes -->
 </AnchorPane>

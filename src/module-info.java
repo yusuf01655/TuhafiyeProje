@@ -2,6 +2,8 @@ module TuhafiyeProje {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires java.sql;
-	
-	opens tr.com.yusuf.test to javafx.graphics, javafx.fxml;
+
+	exports tr.com.yusuf.test;
+
+	opens tr.com.yusuf.fe to javafx.graphics, javafx.fxml;
 }
