@@ -1,76 +1,79 @@
-	create table  musteri(
-	musteri_id int auto_increment primary key not null,
-	ad varchar(255),
-	soyad varchar(255),
-	telefon varchar(255),
-	adres varchar(255),
-	sehir_id int,
-	foreign key (sehir_id) references sehir(sehir_id)
+	CREATE TABLE musteriler(
+	    musteri_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    ad         VARCHAR(255),
+	    soyad      VARCHAR(255),
+	    telefon    VARCHAR(255),
+	    adres      VARCHAR(255),
+	    sehir_id   INT,
+	    FOREIGN_KEY(sehir_id) REFERENCES sehir(sehir_id)
 	);
 	
-	create table  hesap(
-	hesap_id int auto_increment primary key not null,
-	yetki_id int,
-	sifre varchar(255),
-	personel_id int,
-	foreign key (yetki_id) references yetki(yetki_id),
-	foreign key (hesap_id) references hesap(hesap_id),
-	foreign key (personel_id) references personel(personel_id)
+	CREATE TABLE hesaplar(
+	    hesap_id    INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    yetki_id    INT,
+	    sifre       VARCHAR(255),
+	    personel_id INT,
+	    FOREIGN KEY(yetki_id)    REFERENCES yetki(yetki_id),
+	    FOREIGN KEY(hesap_id)    REFERENCES hesap(hesap_id),
+	    FOREIGN KEY(personel_id) REFERENCES personel(personel_id)
 	);
 	
-	create table  kategori(
-	kategori_id int auto_increment primary key not null,
-	adi varchar(255),
-	ust_kategori_id int, 
-	foreign key (ust_kategori_id) references ust_kategori(ust_kategori_id)
+	CREATE TABLE kategoriler(
+	    kategori_id     INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    ad              VARCHAR(255),
+	    ust_kategori_id INT,
+	    FOREIGN KEY(ust_kategori_id) REFERENCES ust_kategori(ust_kategori_id)
 	);
 	
-	create table  personel(
-	personel_id int auto_increment primary key not null,
-	ad varchar(255)
-	soyad varchar(255),
-	email varchar(255),
-	foreign key(personel_id) references personel(personel_id)
+	CREATE TABLE personeller(
+	    personel_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    ad          VARCHAR(255)
+  	    soyad       VARCHAR(255),
+	    email       VARCHAR(255),
+	    FOREIGN KEY(personel_id) REFERENCES personel(personel_id)
 	);
 	
-	create table  satis(
-	satis_id int auto_increment primary key not null,
-	musteri_id int,
-	personel_id int,
-	urun_id int,
-	adet int,
-	tarih date,
-	foreign key (musteri_id) references musteri(musteri_id),
-	foreign key(personel_id) references personel(personel_id),
-	foreign key(urun_id) references urun(urun_id));
-	
-	create table  stok(
-	stok_id int auto_increment primary key not null,
-	personel_id int,
-	urun_id int,
-	tarih date,
-	adet int,
-	foreign key(personel_id) references personel(personel_id),
-	foreign key(urun_id) references urun(urun_id)
+	CREATE TABLE  satislar(
+	    satis_id    INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    musteri_id  INT,
+	    personel_id INT,
+	    urun_id     INT,
+	    adet        INT,
+	    tarih       DATE,
+	    FOREIGN KEY(musteri_id)  REFERENCES musteri(musteri_id),
+	    FOREIGN KEY(personel_id) REFERENCES personel(personel_id),
+	    FOREIGN KEY(urun_id)     REFERENCES urun(urun_id)
 	);
 	
-	create table  urun(
-	urun_id int auto_increment primary key not null,
-	ad varchar(255),
-	kategori_id int,
-	tarih date,
-	fiyat decimal,
-	foreign key(kategori_id) references kategori(kategori_id));
-	
-	create table  yetki(
-	yetki_id int auto_increment primary key not null,
-	adi varchar(255));
-	
-	create table sehir(
-		sehir_id int auto_increment primary key not null,
-		ad varchar(255);
+	CREATE TABLE  stoklar(
+	    stok_id     INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    personel_id INT,
+	    urun_id     INT,
+	    tarih       DATE,
+	    adet        INT,
+	    FOREIGN KEY(personel_id) REFERENCES personel(personel_id),
+	    FOREIGN KEY(urun_id)     REFERENCES urun(urun_id)
 	);
-	create table ust_kategori(
-		ust_kategori_id int,
-		adi varchar(255)
+	
+	CREATE TABLE  urunler(
+	    urun_id     INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    ad          VARCHAR(255),
+	    kategori_id INT,
+	    tarih       DATE,
+	    fiyat       DECIMAL,
+	    FOREIGN KEY(kategori_id) REFERENCES kategori(kategori_id)
+	);
+	
+	CREATE TABLE  yetkiler(
+	    yetki_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    ad       VARCHAR(255)
+	);
+	
+	CREATE TABLE sehirler(
+	    sehir_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	    ad       VARCHAR(255);
+	);
+	CREATE TABLE ust_kategoriler(
+	    ust_kategori_id INT,
+	    adi             VARCHAR(255)
 	);
