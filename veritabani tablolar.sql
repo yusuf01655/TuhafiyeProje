@@ -1,20 +1,27 @@
-	CREATE DATABASE tuhafiye_otomasyonu;
-	CREATE TABLE musteriler(
+	IF NOT EXIST CREATE DATABASE tuhafiye_otomasyonu;
+	
+	CREATE TABLE sehirler(
+	    PRIMARY KEY(sehir_id),
+	    sehir_id INT AUTO_INCREMENT NOT NULL,
+	    ad       VARCHAR(255) DEFAULT 'ad'
+
+	);
+	    CREATE TABLE musteriler(
 	    PRIMARY KEY(musteri_id),
-	    musteri_id INT          DEFAULT 1 AUTO_INCREMENT  NOT NULL,
+	    musteri_id INT          AUTO_INCREMENT  NOT NULL,
 	    ad         VARCHAR(255) DEFAULT 'ad',
 	    soyad      VARCHAR(255) DEFAULT 'soyad',
 	    telefon    VARCHAR(255) DEFAULT 'telefon',
 	    adres      VARCHAR(255) DEFAULT 'adres',
 	    sehir_id   INT          DEFAULT 1,
 	    
-	    FOREIGN_KEY(sehir_id) REFERENCES sehir(sehir_id)
+	    FOREIGN KEY(sehir_id) REFERENCES sehir(sehir_id)
 	    
 	);
 	
 	CREATE TABLE hesaplar(
             PRIMARY KEY(hesap_id),
-	    hesap_id    INT          DEFAULT 1 AUTO_INCREMENT NOT NULL,
+	    hesap_id    INT          AUTO_INCREMENT NOT NULL,
 	    yetki_id    INT          DEFAULT 1,
 	    sifre       VARCHAR(255) DEFAULT 'sifre' ,
 	    personel_id INT          DEFAULT 1,
@@ -26,7 +33,7 @@
 	
 	CREATE TABLE kategoriler(
 	    PRIMARY KEY (kategori_id),
-	    kategori_id     INT          DEFAULT 1 AUTO_INCREMENT NOT NULL,
+	    kategori_id     INT          AUTO_INCREMENT NOT NULL,
 	    ad              VARCHAR(255) DEFAULT 'ad',
 	    ust_kategori_id INT          DEFAULT 1,
 	    FOREIGN KEY(ust_kategori_id) REFERENCES ust_kategori(ust_kategori_id)
@@ -43,7 +50,7 @@
 	
 	CREATE TABLE  satislar(
 	    PRIMARY KEY (satis_id),
-	    satis_id    INT  DEFAULT 1 AUTO_INCREMENT NOT NULL,
+	    satis_id    INT  AUTO_INCREMENT NOT NULL,
 	    musteri_id  INT  DEFAULT 1,
 	    personel_id INT  DEFAULT 1,
 	    urun_id     INT  DEFAULT 1,
@@ -56,7 +63,7 @@
 	
 	CREATE TABLE  stoklar(
 	    PRIMARY KEY(stok_id),
-	    stok_id     INT DEFAULT 1 AUTO_INCREMENT NOT NULL,
+	    stok_id     INT AUTO_INCREMENT NOT NULL,
 	    personel_id INT DEFAULT 1,
 	    urun_id     INT DEFAULT 1,
 	    tarih       DATE DEFAULT '1990-01-01 00:00:00.00000',
@@ -67,7 +74,7 @@
 	
 	CREATE TABLE  urunler(
             PRIMARY KEY (urun_id),
-	    urun_id     INT DEFAULT 1 AUTO_INCREMENT NOT NULL,
+	    urun_id     INT AUTO_INCREMENT NOT NULL,
 	    ad          VARCHAR(255) DEFAULT 'ad' ,
 	    kategori_id INT DEFAULT 1,
 	    tarih       DATE DEFAULT '1990-01-01 00:00:00.00000',
@@ -77,19 +84,14 @@
 	
 	CREATE TABLE  yetkiler(
 	    PRIMARY KEY (yetki_id),
-	    yetki_id INT DEFAULT 1 AUTO_INCREMENT NOT NULL,
-	    ad       VARCHAR(255) DEFAULT 'ad',
+	    yetki_id INT  AUTO_INCREMENT NOT NULL,
+	    ad       VARCHAR(255) DEFAULT 'ad'
 	);
 	
-	CREATE TABLE sehirler(
-	    PRIMARY KEY(sehir_id),
-	    sehir_id INT DEFAULT 1 AUTO_INCREMENT NOT NULL,
-	    ad       VARCHAR(255) DEFAULT 'ad'
 
-	);
 	CREATE TABLE ust_kategoriler(
-	    PRIMARY KEY(ust_kategori_id)
-	    ust_kategori_id INT DEFAULT 1 NOT NULL,
-	    adi             VARCHAR(255) DEFAULT 'ad',
+	    PRIMARY KEY(ust_kategori_id),
+	    ust_kategori_id INT NOT NULL,
+	    adi             VARCHAR(255) DEFAULT 'ad'
   	    
 	);
