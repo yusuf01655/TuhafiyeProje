@@ -1,4 +1,4 @@
-	IF NOT EXIST CREATE DATABASE tuhafiye_otomasyonu;
+	
 	
 	CREATE TABLE sehirler(
 	    PRIMARY KEY(sehir_id),
@@ -43,15 +43,30 @@
 	    FOREIGN KEY(personel_id) REFERENCES personeller(personel_id)
 	);
 	
+	CREATE TABLE ust_kategoriler(
+	    PRIMARY KEY(ust_kategori_id),
+	    ust_kategori_id INT NOT NULL,
+	    adi             VARCHAR(255) DEFAULT 'ad'
+  	    
+	);
+	
 	CREATE TABLE kategoriler(
 	    PRIMARY KEY (kategori_id),
 	    kategori_id     INT          AUTO_INCREMENT NOT NULL,
 	    ad              VARCHAR(255) DEFAULT 'ad',
 	    ust_kategori_id INT          DEFAULT 1,
-	    FOREIGN KEY(ust_kategori_id) REFERENCES ust_kategori(ust_kategori_id)
+	    FOREIGN KEY(ust_kategori_id) REFERENCES ust_kategoriler(ust_kategori_id)
 	);
 	
-	
+	CREATE TABLE  urunler(
+            PRIMARY KEY (urun_id),
+	    urun_id     INT AUTO_INCREMENT NOT NULL,
+	    ad          VARCHAR(255) DEFAULT 'ad' ,
+	    kategori_id INT DEFAULT 1,
+	    tarih       DATE DEFAULT '1990-01-01 00:00:00.00000',
+	    fiyat       DECIMAL DEFAULT 0,
+	    FOREIGN KEY(kategori_id) REFERENCES kategoriler(kategori_id)
+	);
 	
 	CREATE TABLE  satislar(
 	    PRIMARY KEY (satis_id),
@@ -77,22 +92,9 @@
 	    FOREIGN KEY(urun_id)     REFERENCES urunler(urun_id)
 	);
 	
-	CREATE TABLE  urunler(
-            PRIMARY KEY (urun_id),
-	    urun_id     INT AUTO_INCREMENT NOT NULL,
-	    ad          VARCHAR(255) DEFAULT 'ad' ,
-	    kategori_id INT DEFAULT 1,
-	    tarih       DATE DEFAULT '1990-01-01 00:00:00.00000',
-	    fiyat       DECIMAL DEFAULT 0,
-	    FOREIGN KEY(kategori_id) REFERENCES kategoriler(kategori_id)
-	);
+	
 	
 	
 	
 
-	CREATE TABLE ust_kategoriler(
-	    PRIMARY KEY(ust_kategori_id),
-	    ust_kategori_id INT NOT NULL,
-	    adi             VARCHAR(255) DEFAULT 'ad'
-  	    
-	);
+	
