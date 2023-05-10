@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
-	
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
+   <children>
+      <MenuBar layoutX="6.0" layoutY="6.0" prefHeight="32.0" prefWidth="653.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Dosya">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Kapat" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ürünler">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Ürün Ekle" />
+                  <MenuItem mnemonicParsing="false" text="Kategori Ekle" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Ürünü Düzenle" />
+                  <MenuItem mnemonicParsing="false" text="Kategoriyi Düzenle" />
+                  <Menu mnemonicParsing="false" text="Unspecified Menu">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Personeller">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Borçlar">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Müşteriler">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Unspecified Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
 </AnchorPane>
