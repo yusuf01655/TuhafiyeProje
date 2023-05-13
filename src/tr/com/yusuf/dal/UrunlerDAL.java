@@ -18,7 +18,7 @@ public class UrunlerDAL extends ObjectHelper implements DALInterfaces<UrunlerCon
 		Connection connection = getConnection();
 		try {
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("INSERT INTO Urunler(ad, kategori_id, tarih, fiyat)" + "VALUES ('" + entity.getAd()
+			statement.executeUpdate("INSERT INTO urunler(ad, kategori_id, tarih, fiyat)" + "VALUES ('" + entity.getAd()
 					+ "' , " + entity.getKategoriId() + ",'" + entity.getTarih() + "' , " + entity.getFiyat() + ")");
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
