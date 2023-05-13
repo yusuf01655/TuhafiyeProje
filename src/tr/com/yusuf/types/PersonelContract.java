@@ -6,33 +6,41 @@ public class PersonelContract {
 	private String ad;
 	private String soyad;
 	private String eposta;
-	
-	public int getId(){
+
+	public int getId() {
 		return this.id;
 	}
-	public void setId(int id){
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAd(){
+
+	public String getAd() {
 		return this.ad;
 	}
-	public void  setAd(String ad){
+
+	public void setAd(String ad) {
 		this.ad = ad;
 	}
-	public String getSoyad(){
+
+	public String getSoyad() {
 		return this.soyad;
 	}
-	public void setSoyad(String soyad){
+
+	public void setSoyad(String soyad) {
 		this.soyad = soyad;
 	}
-	public String getEposta(){
+
+	public String getEposta() {
 		return this.eposta;
 	}
-	public void setEposta(String eposta){
+
+	public void setEposta(String eposta) {
 		this.eposta = eposta;
 	}
+
 	@Override
-	public String toString(){
-		return String.format("%d %s %s %s",id,ad,soyad,eposta);
+	public String toString() {
+		return String.format("%d %s %s %s", id, ad, soyad, eposta);
 	}
 }
