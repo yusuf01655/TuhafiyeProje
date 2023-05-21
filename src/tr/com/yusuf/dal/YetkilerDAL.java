@@ -18,7 +18,7 @@ public class YetkilerDAL extends ObjectHelper implements DALInterfaces<YetkilerC
 		Connection connection = getConnection();
 		try {
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("INSERT INTO yetkiler(ad)" + "VALUES ('" + entity.getAd() + ")");
+			statement.executeUpdate("INSERT INTO yetkiler(ad)" + "VALUES ('" + entity.getAd() + "')");
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
