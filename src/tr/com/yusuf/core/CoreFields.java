@@ -4,7 +4,7 @@ public class CoreFields {
 
 	private String kullaniciAdi;
 	private String sifre;
-	private String url = "jdbc:mysql://localhost:3306/tuhafiye_otomasyonu?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey";
+	private String url;
 
 	public String getKullaniciAdi() {
 		return kullaniciAdi;
