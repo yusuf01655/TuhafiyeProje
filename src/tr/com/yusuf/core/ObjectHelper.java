@@ -17,6 +17,9 @@ public class ObjectHelper extends CoreFields implements CoreInterfaces {
 
 	@Override
 	public Connection getConnection() {
+		setKullaniciAdi("root");
+		setUrl("jdbc:mysql://localhost:3306/tuhafiye_otomasyonu?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey");
+		setSifre("");
 		Connection connection = null;
 		try {
 			connection = DriverManager.getConnection(getUrl(), getKullaniciAdi(), getSifre());
