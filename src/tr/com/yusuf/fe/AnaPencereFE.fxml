@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
@@ -17,39 +25,104 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Ürünler">
             <items>
-              <MenuItem mnemonicParsing="false" text="Ürün Ekle" />
-                  <MenuItem mnemonicParsing="false" text="Kategori Ekle" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Ürünü Düzenle" />
-                  <MenuItem mnemonicParsing="false" text="Kategoriyi Düzenle" />
-                  <Menu mnemonicParsing="false" text="Unspecified Menu">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
+              <MenuItem fx:id="menuItemUrunEkle" mnemonicParsing="false" onAction="#menuItemUrunEkle_OnAction" text="Ürün Ekle" />
+                  <MenuItem fx:id="menuItemUrunSil" mnemonicParsing="false" onAction="#menuItemUrunSil_OnAction" text="Ürün Sil" />
+                  <MenuItem fx:id="menuItemUrunDuzenle" mnemonicParsing="false" onAction="#menuItemUrunDuzenle_OnAction" text="Ürünü Düzenle" />
+                  <MenuItem fx:id="menuItemUrunGoster" mnemonicParsing="false" onAction="#menuItemUrunGoster_OnAction" text="Ürün Göster" />
+                  <MenuItem fx:id="menuItemIdIleUrunGoster" mnemonicParsing="false" onAction="#menuItemIdIleUrunGoster_OnAction" text="ID ile ürün göster" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Personeller">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="menuItemPersonelEkle" mnemonicParsing="false" onAction="#menuItemPersonelEkle_OnAction" text="Personel Ekle" />
+                  <MenuItem fx:id="menuItemPersonelSil" mnemonicParsing="false" onAction="#menuItemPersonelSil_OnAction" text="Personel Sil" />
+                  <MenuItem fx:id="menuItemPersonelDuzenle" mnemonicParsing="false" onAction="#menuItemPersonelDuzenle_OnAction" text="Personel Düzenle" />
+                  <MenuItem fx:id="menuItemPersonelGoster" mnemonicParsing="false" onAction="#menuItemPersonelGoster_OnAction" text="Personel Göster" />
+                  <MenuItem fx:id="menuItemIdIlePersonelGoster" mnemonicParsing="false" onAction="#menuItemIdIlePersonelGoster_OnAction" text="ID ile Personel göster" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Borçlar">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem fx:id="menuItemBorcEkle" mnemonicParsing="false" onAction="#menuItemBorcEkle_OnAction" text="Borç Ekle" />
+                  <MenuItem fx:id="menuItemBorcSil" mnemonicParsing="false" onAction="#menuItemBorcSil_OnAction" text="Borç Sil" />
+                  <MenuItem fx:id="menuItemBorcDuzenle" mnemonicParsing="false" onAction="#menuItemBorcDuzenle_OnAction" text="Borç Düzenle" />
+                  <MenuItem fx:id="menuItemBorcGoster" mnemonicParsing="false" onAction="#menuItemBorcGoster_OnAction" text="Borç Göster" />
+                  <MenuItem fx:id="menuItemIdIleBorcGoster" mnemonicParsing="false" onAction="#menuItemIdIleBorcGoster_OnAction" text="ID ile Borç Göster" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Müşteriler">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem fx:id="menuItemMusteriEkle" mnemonicParsing="false" onAction="#menuItemUrunEkle_OnAction" text="Müşteri Ekle" />
+                  <MenuItem fx:id="menuItemMusteriSil" mnemonicParsing="false" onAction="#menuItemMusteriSil_OnAction" text="Müşteri Sil" />
+                  <MenuItem fx:id="menuItemMusteriDuzenle" mnemonicParsing="false" onAction="#menuItemMusteriDuzenle_OnAction" text="Müşteri  Düzenle" />
+                  <MenuItem fx:id="menuItemMusteriGoster" mnemonicParsing="false" onAction="#menuItemMusteriGoster_OnAction" text="Müşteri Göster" />
+                  <MenuItem fx:id="menuItemIdIleMusteriGoster" mnemonicParsing="false" onAction="#menuItemIdIleMusteriGoster_OnAction" text="ID ile Müşteri Göster" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Yetkiler">
               <items>
                 <MenuItem fx:id="menuItemYetkiEkle" mnemonicParsing="false" onAction="#menuItemYetkiEkle_OnAction" text="Yetki Ekle" />
+                  <MenuItem fx:id="menuItemYetkiSil" mnemonicParsing="false" onAction="#menuItemYetkiSil_OnAction" text="Yetki Sil" />
+                  <MenuItem fx:id="menuItemYetkiDuzenle" mnemonicParsing="false" onAction="#menuItemYetkiDuzenle_OnAction" text="Yetki Düzenle" />
+                  <MenuItem fx:id="menuItemYetkiGoster" mnemonicParsing="false" onAction="#menuItemYetkiGoster_OnAction" text="Yetki Göster" />
+                  <MenuItem fx:id="menuItemIdIleYetkiGoster" mnemonicParsing="false" onAction="#menuItemIdIleYetkiGoster_OnAction" text="ID ile Yetki göster" />
               </items>
             </Menu>
         </menus>
       </MenuBar>
+      <TabPane layoutX="14.0" layoutY="50.0" prefHeight="307.0" prefWidth="785.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Stoklar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="235.0" prefWidth="795.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="14.0" text="Ürün Adı:" />
+                        <Label layoutX="21.0" layoutY="35.0" text="Adet:" />
+                        <Label layoutX="15.0" layoutY="97.0" text="Stok Tarihi:" />
+                        <Button layoutX="58.0" layoutY="184.0" mnemonicParsing="false" text="Stok Ekle" />
+                        <Button layoutX="149.0" layoutY="184.0" mnemonicParsing="false" text="Yenile" />
+                        <TableView layoutX="319.0" layoutY="7.0" prefHeight="200.0" prefWidth="436.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="id" />
+                            <TableColumn prefWidth="118.0" text="Personel Adı" />
+                              <TableColumn prefWidth="75.0" text="Ürün Adı" />
+                              <TableColumn prefWidth="75.0" text="Adeti" />
+                              <TableColumn prefWidth="75.0" text="Tarihi" />
+                          </columns>
+                        </TableView>
+                        <ComboBox layoutX="112.0" layoutY="9.0" prefWidth="150.0" />
+                        <TextField layoutX="112.0" layoutY="45.0" />
+                        <DatePicker layoutX="112.0" layoutY="92.0" prefHeight="31.0" prefWidth="189.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Satışlar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="417.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="id" />
+                              <TableColumn prefWidth="118.0" text="Personel Adı" />
+                              <TableColumn prefWidth="75.0" text="Ürün Adı" />
+                              <TableColumn prefWidth="75.0" text="Adeti" />
+                              <TableColumn prefWidth="75.0" text="Tarihi" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="480.0" layoutY="30.0" text="Ürün Adı:" />
+                        <Label layoutX="514.0" layoutY="76.0" text="Adet:" />
+                        <Label layoutX="474.0" layoutY="124.0" text="Stok Tarihi:" />
+                        <Button layoutX="553.0" layoutY="167.0" mnemonicParsing="false" text="Stok Ekle" />
+                        <Button layoutX="696.0" layoutY="167.0" mnemonicParsing="false" text="Yenile" />
+                        <ComboBox layoutX="594.0" layoutY="25.0" prefWidth="150.0" />
+                        <TextField layoutX="561.0" layoutY="71.0" />
+                        <DatePicker layoutX="560.0" layoutY="114.0" prefHeight="31.0" prefWidth="189.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
