@@ -68,6 +68,15 @@
                   <MenuItem fx:id="menuItemIdIleYetkiGoster" mnemonicParsing="false" onAction="#menuItemIdIleYetkiGoster_OnAction" text="ID ile Yetki göster" />
               </items>
             </Menu>
+            <Menu fx:id="menuKategoriler" mnemonicParsing="false" onAction="#menuKategoriler_OnAction" text="Kategoriler">
+              <items>
+                <MenuItem fx:id="menuItemKategoriEkle" mnemonicParsing="false" onAction="#menuItemKategoriEkle_OnAction" text="Kategori Ekle" />
+                  <MenuItem fx:id="menuItemKategoriSil" mnemonicParsing="false" onAction="#menuItemKategoriSil_OnAction" text="Kategori Sil" />
+                  <MenuItem fx:id="menuItemKategoriDuzenle" mnemonicParsing="false" onAction="#menuItemKategoriDuzenle_OnAction" text="Kategori Düzenle" />
+                  <MenuItem fx:id="menuItemKategoriGoster" mnemonicParsing="false" onAction="#menuItemKategoriGoster_OnAction" text="Kategori Goster" />
+                  <MenuItem fx:id="menuItemIdIleKategoriGoster" mnemonicParsing="false" onAction="#menuItemIdIleKategoriGoster_OnAction" text="Id Ile Kategori" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <TabPane layoutX="14.0" layoutY="50.0" prefHeight="307.0" prefWidth="785.0" tabClosingPolicy="UNAVAILABLE">
