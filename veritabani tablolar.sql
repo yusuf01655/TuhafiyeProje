@@ -92,7 +92,10 @@
 	    FOREIGN KEY(urun_id)     REFERENCES urunler(urun_id)
 	);
 	
-	
+	ALTER TABLE hesaplar
+	ADD COLUMN ad VARCHAR(255) DEFAULT 'ad',
+	ADD COLUMN soyad VARCHAR(255) DEFAULT 'soyad',
+	ADD COLUMN eposta VARCHAR(255) DEFAULT 'ornek@eposta.com';
 	
 	
 	
