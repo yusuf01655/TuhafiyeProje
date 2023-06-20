@@ -3,46 +3,71 @@ package tr.com.yusuf.types;
 public class HesaplarContract {
 
 	private int id;
-	private String ad;
 	private int yetkiId;
 	private int personelId;
+	private String ad;
+	private String soyad;
+	private String ePosta;
 	private String sifre;
-	
-	public int getId(){
-		return this.id;
+
+	public int getId() {
+		return id;
 	}
-	public void setId(int id){
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAd(){
-		return this.ad;
+
+	public int getYetkiId() {
+		return yetkiId;
 	}
-	public void setAd(String ad){
-		this.ad = ad;
-	}
-	public int getYetkiId(){
-		return this.yetkiId;
-	}
-	public void setYetkiId(int yetkiId){
+
+	public void setYetkiId(int yetkiId) {
 		this.yetkiId = yetkiId;
 	}
-	public void getPersonelId(int personelId){
+
+	public int getPersonelId() {
+		return personelId;
+	}
+
+	public void setPersonelId(int personelId) {
 		this.personelId = personelId;
 	}
-	public String getSifre(){
-		return this.sifre;
+
+	public String getAd() {
+		return ad;
 	}
-	public void setSifre(String sifre){
+
+	public void setAd(String ad) {
+		this.ad = ad;
+	}
+
+	public String getSoyad() {
+		return soyad;
+	}
+
+	public void setSoyad(String soyad) {
+		this.soyad = soyad;
+	}
+
+	public String getePosta() {
+		return ePosta;
+	}
+
+	public void setEPosta(String ePosta) {
+		this.ePosta = ePosta;
+	}
+
+	public String getSifre() {
+		return sifre;
+	}
+
+	public void setSifre(String sifre) {
 		this.sifre = sifre;
 	}
-	public int getPersonelId(){
-		return this.personelId;
+
+	@Override
+	public String toString() {
+		return String.format("%d %d %d %s %s %s %s", id, yetkiId, personelId, ad, soyad, ePosta, sifre);
 	}
-	public void setPersonelId(int personelId){
-		this.personelId = personelId;
-	}
-	@Override 
-	public String toString(){
-		return String.format("%d %s %d %d %s");
-	} 
 }
