@@ -5,9 +5,14 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import tr.com.yusuf.interfaces.FeInterfaces;
 
-public class AnaPencereFEController {
+public class AnaPencereFEController implements FeInterfaces {
 	@FXML
 	private ResourceBundle resources;
 
@@ -87,6 +92,15 @@ public class AnaPencereFEController {
 
 	@FXML
 	private MenuItem menuItemIdIleYetkiGoster;
+
+	@FXML
+	private MenuItem menuItemKategoriEkle;
+	@FXML
+	private MenuItem menuItemKategoriDuzenle;
+	@FXML
+	private MenuItem menuItemKategoriGoster;
+	@FXML
+	private MenuItem menuItemIdIleKategoriGoster;
 
 	@FXML
 	void menuItemBorcDuzenle_OnAction(ActionEvent event) {
@@ -210,7 +224,50 @@ public class AnaPencereFEController {
 	}
 
 	@FXML
+	void menuItemKategoriEkle_OnAction(ActionEvent event) {
+		new KategoriEkleFE().initPencere();
+	}
+
+	@FXML
+	void menuItemKategoriSil_OnAction(ActionEvent event) {
+		new KategoriSilFE().initPencere();
+	}
+
+	@FXML
+	void menuItemKategoriDuzenle_OnAction(ActionEvent event) {
+		new KategoriDuzenleFE().initPencere();
+
+	}
+
+	@FXML
+	void menuItemKategoriGoster_OnAction(ActionEvent event) {
+		new KategoriGosterFE().initPencere();
+	}
+
+	@FXML
+	void menuItemIdIleKategoriGoster_OnAction(ActionEvent event) {
+		new IdIleKategoriGosterFE().initPencere();
+	}
+
+	@FXML
 	void initialize() {
+
+	}
+
+	@Override
+	public void initPencere() {
+
+		try {
+			Stage primaryStage = new Stage();
+			AnchorPane root = (AnchorPane) FXMLLoader
+					.load(getClass().getResource("/tr/com/yusuf/fe/AnaPencereFE.fxml"));
+			Scene scene = new Scene(root, 400, 400);
+			scene.getStylesheets().add(getClass().getResource("/tr/com/yusuf/test/application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
