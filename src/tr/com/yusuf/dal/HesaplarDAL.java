@@ -23,8 +23,9 @@ public class HesaplarDAL extends ObjectHelper implements DALInterfaces<HesaplarC
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("INSERT INTO hesaplar(yetki_id, sifre, personel_id, ad, soyad, eposta) VALUES("
-					+ entity.getYetkiId() + ", " + entity.getSifre() + ", " + entity.getPersonelId() + ", "
-					+ entity.getAd() + ", " + entity.getSoyad() + ", " + entity.getePosta() + ")");
+					+ entity.getYetkiId() + ", " + new ObjectHelper().MD5Encrypt(entity.getSifre()) + ", "
+					+ entity.getPersonelId() + ", " + entity.getAd() + ", " + entity.getSoyad() + ", "
+					+ entity.getePosta() + ")");
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
@@ -79,9 +80,9 @@ public class HesaplarDAL extends ObjectHelper implements DALInterfaces<HesaplarC
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("UPDATE hesaplar SET yetki_id = " + entity.getYetkiId() + ", sifre = '"
-					+ entity.getSifre() + "', personel_id = " + entity.getPersonelId() + "', ad =" + entity.getAd()
-					+ "', soyad = " + entity.getSoyad() + "', eposta = " + entity.getePosta() + " WHERE hesap_id = "
-					+ entity.getId() + "");
+					+ new ObjectHelper().MD5Encrypt(entity.getSifre()) + "', personel_id = " + entity.getPersonelId()
+					+ "', ad =" + entity.getAd() + "', soyad = " + entity.getSoyad() + "', eposta = "
+					+ entity.getePosta() + " WHERE hesap_id = " + entity.getId() + "");
 			statement.close();
 			connection.close();
 		} catch (SQLException sqlException) {
@@ -127,7 +128,7 @@ public class HesaplarDAL extends ObjectHelper implements DALInterfaces<HesaplarC
 			PreparedStatement preparedStatement = connection.prepareStatement(sorgu);
 
 			preparedStatement.setString(1, ePosta);
-			preparedStatement.setString(2, sifre);
+			preparedStatement.setString(2, new ObjectHelper().MD5Encrypt(sifre));
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
