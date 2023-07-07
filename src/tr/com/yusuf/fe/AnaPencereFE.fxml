@@ -14,7 +14,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
+<AnchorPane minHeight="400.0" minWidth="400.0" prefHeight="407.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
    <children>
       <MenuBar layoutX="6.0" layoutY="6.0" prefHeight="32.0" prefWidth="653.0">
         <menus>
@@ -68,7 +68,7 @@
                   <MenuItem fx:id="menuItemIdIleYetkiGoster" mnemonicParsing="false" onAction="#menuItemIdIleYetkiGoster_OnAction" text="ID ile Yetki göster" />
               </items>
             </Menu>
-            <Menu  mnemonicParsing="false"  text="Kategoriler">
+            <Menu mnemonicParsing="false" text="Kategoriler">
               <items>
                 <MenuItem fx:id="menuItemKategoriEkle" mnemonicParsing="false" onAction="#menuItemKategoriEkle_OnAction" text="Kategori Ekle" />
                   <MenuItem fx:id="menuItemKategoriSil" mnemonicParsing="false" onAction="#menuItemKategoriSil_OnAction" text="Kategori Sil" />
@@ -79,7 +79,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <TabPane layoutX="14.0" layoutY="50.0" prefHeight="307.0" prefWidth="785.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="14.0" layoutY="50.0" prefHeight="338.0" prefWidth="1234.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Stoklar">
             <content>
@@ -108,30 +108,36 @@
           </Tab>
           <Tab text="Satışlar">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="321.0" prefWidth="1226.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="417.0">
+                        <TableView fx:id="tableViewSatislar" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="871.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="id" />
-                              <TableColumn prefWidth="118.0" text="Personel Adı" />
-                              <TableColumn prefWidth="75.0" text="Ürün Adı" />
-                              <TableColumn prefWidth="75.0" text="Adeti" />
-                              <TableColumn prefWidth="75.0" text="Tarihi" />
+                              <TableColumn fx:id="tableColumnSatisId" prefWidth="75.0" text="satis_id" />
+                              <TableColumn fx:id="tableColumnHesapAdi" prefWidth="118.0" text="Hesap Adı" />
+                              <TableColumn fx:id="tableColumnHesapSoyadi" prefWidth="118.0" text="Hesap Soyadı" />
+                              <TableColumn fx:id="tableColumnUrunAdi" prefWidth="75.0" text="Ürün Adı" />
+                              <TableColumn fx:id="tableColumnAdeti" prefWidth="75.0" text="Adeti" />
+                              <TableColumn fx:id="tableColumnTarihi" prefWidth="75.0" text="Tarihi" />
+                              <TableColumn fx:id="tableColumnMusteriAdi" prefWidth="95.0" text="Müşteri Adı" />
+                              <TableColumn fx:id="tableColumnMusteriSoyadi" prefWidth="136.0" text="Müşteri Soyadı" />
+                              <TableColumn fx:id="tableColumnMusteriId" prefWidth="75.0" text="MusteriId" />
                            </columns>
                         </TableView>
-                        <Label layoutX="480.0" layoutY="30.0" text="Ürün Adı:" />
-                        <Label layoutX="514.0" layoutY="76.0" text="Adet:" />
-                        <Label layoutX="474.0" layoutY="124.0" text="Stok Tarihi:" />
-                        <Button layoutX="553.0" layoutY="167.0" mnemonicParsing="false" text="Stok Ekle" />
-                        <Button layoutX="696.0" layoutY="167.0" mnemonicParsing="false" text="Yenile" />
-                        <ComboBox layoutX="594.0" layoutY="25.0" prefWidth="150.0" />
-                        <TextField layoutX="561.0" layoutY="71.0" />
-                        <DatePicker layoutX="560.0" layoutY="114.0" prefHeight="31.0" prefWidth="189.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
+      <Label layoutX="975.0" layoutY="160.0" text="Ürün Adı:" />
+      <Label layoutX="999.0" layoutY="249.0" text="Adet:" />
+      <Label layoutX="959.0" layoutY="297.0" text="Satış Tarihi:" />
+      <Button fx:id="buttonSatisYap" layoutX="1038.0" layoutY="340.0" mnemonicParsing="false" onAction="#buttonSatisYap_OnAction" text="Satış Yap" />
+      <Button layoutX="1181.0" layoutY="340.0" mnemonicParsing="false" text="Yenile" />
+      <ComboBox fx:id="comboBoxSatisUrunAdi" layoutX="1083.0" layoutY="158.0" prefWidth="150.0" />
+      <TextField fx:id="textFieldAdet" layoutX="1046.0" layoutY="244.0" />
+      <DatePicker fx:id="datePickerSatisTarihi" layoutX="1045.0" layoutY="287.0" prefHeight="31.0" prefWidth="189.0" />
+      <Label layoutX="975.0" layoutY="201.0" text="Müşteri Adı:" />
+      <ComboBox fx:id="comboBoxSatisMusteriAdi" layoutX="1083.0" layoutY="199.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
