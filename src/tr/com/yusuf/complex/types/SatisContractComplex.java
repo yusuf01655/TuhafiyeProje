@@ -28,7 +28,7 @@ public class SatisContractComplex {
 		this.musteriSoyad = musteriSoyad;
 		this.satisAdet = satisAdet;
 		this.urunAdi = urunAdi;
-		this.satisTarih = satisTarih;
+		this.satisTarih = satisTarihi;
 	}
 
 	public int getSatisId() {
