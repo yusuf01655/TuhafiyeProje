@@ -130,7 +130,7 @@ public class HesaplarDAL extends ObjectHelper implements DALInterfaces<HesaplarC
 			preparedStatement.setString(1, ePosta);
 			preparedStatement.setString(2, new ObjectHelper().MD5Encrypt(sifre));
 			ResultSet resultSet = preparedStatement.executeQuery();
-
+			int i = 0;
 			while (resultSet.next()) {
 				hesaplarContract.setId(resultSet.getInt("hesap_id"));
 				hesaplarContract.setPersonelId(resultSet.getInt("personel_id"));
@@ -139,10 +139,12 @@ public class HesaplarDAL extends ObjectHelper implements DALInterfaces<HesaplarC
 				hesaplarContract.setAd(resultSet.getString("ad"));
 				hesaplarContract.setSoyad(resultSet.getString("soyad"));
 				hesaplarContract.setEPosta(resultSet.getString("eposta"));
-
+				i = resultSet.getInt("hesap_id");
 			}
+			HesaplarContract.sessionId = i;
+			if (((hesaplarContract.getePosta().equals(ePosta))
+					&& (hesaplarContract.getSifre().equals(new ObjectHelper().MD5Encrypt(sifre))))) {
 
-			if (((hesaplarContract.getePosta().equals(ePosta)) && (hesaplarContract.getSifre().equals(sifre)))) {
 				new AnaPencereFEController().initPencere();
 
 			} else {
