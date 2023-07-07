@@ -1,6 +1,7 @@
 package tr.com.yusuf.dal;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tr.com.yusuf.complex.types.SatisContractComplex;
 import tr.com.yusuf.core.ObjectHelper;
 import tr.com.yusuf.interfaces.DALInterfaces;
@@ -27,9 +30,9 @@ public class SatisDAL extends ObjectHelper implements DALInterfaces<SatisContrac
 			PreparedStatement preparedStatement = connection.prepareStatement(sorgu);
 			preparedStatement.setInt(1, entity.getUrunId());
 			preparedStatement.setInt(2, entity.getMusteriId());
-			preparedStatement.setInt(3, entity.getPersonelId());
+			preparedStatement.setInt(3, entity.getHesapId());
 			preparedStatement.setInt(4, entity.getAdet());
-			preparedStatement.setDate(5, entity.getTarih());
+			preparedStatement.setDate(5, (Date) entity.getTarih());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			connection.close(); // yoksa ifadeyi deðiþtir.
@@ -51,13 +54,16 @@ public class SatisDAL extends ObjectHelper implements DALInterfaces<SatisContrac
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				satisContract = new SatisContract();
-				satisContract.setId(resultSet.getInt("satis_id"));
+				satisContract.setSatisId(resultSet.getInt("satis_id"));
 				satisContract.setMusteriId(resultSet.getInt("musteri_id"));
-				satisContract.setPersonelId(resultSet.getInt("personel_id"));
+				satisContract.setHesapId(resultSet.getInt("personel_id"));
 				satisContract.setUrunId(resultSet.getInt("urun_id"));
 				satisContract.setAdet(resultSet.getInt("adet"));
 				satisContract.setTarih(resultSet.getDate("tarih"));
 				veriContract.add(satisContract);
+				// local date to date
+				// date to local date
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,8 +71,8 @@ public class SatisDAL extends ObjectHelper implements DALInterfaces<SatisContrac
 		return veriContract;
 	}
 
-	public List<SatisContractComplex> satislarinHepsiniAl() {
-		List<SatisContractComplex> veriContract = new ArrayList<>();
+	public ObservableList<SatisContractComplex> satislarinHepsiniAl() {
+		ObservableList<SatisContractComplex> veriContract = FXCollections.observableArrayList();
 		Connection connection = getConnection();
 		SatisContractComplex satisContractComplex;
 		String sorgu = "SELECT satis.satis_id, hesaplar.ad, hesaplar.soyad ,musteri.ad, musteri.soyad, satis.adet, satis.tarih FROM satis LEFT JOIN musteri on satis.musteri_id = musteri.musteri_id LEFT JOIN urunler on satis.urun_id = urunler.urun_id LEFT JOIN hesaplar on satis.personel_id = hesaplar.personel_id ";
@@ -96,7 +102,7 @@ public class SatisDAL extends ObjectHelper implements DALInterfaces<SatisContrac
 		Connection connection = getConnection();
 		try {
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("DELETE FROM satislar WHERE satis_id=" + entity.getId());
+			statement.executeUpdate("DELETE FROM satislar WHERE satis_id=" + entity.getSatisId());
 			statement.close();
 			connection.close();
 
@@ -125,7 +131,7 @@ public class SatisDAL extends ObjectHelper implements DALInterfaces<SatisContrac
 			preparedStatement.setInt(2, entity.getMusteriId());
 			preparedStatement.setInt(3, entity.getUrunId());
 			preparedStatement.setInt(4, entity.getAdet());
-			preparedStatement.setDate(5, entity.getTarih());
+			preparedStatement.setDate(5, (Date) entity.getTarih());
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -146,9 +152,9 @@ public class SatisDAL extends ObjectHelper implements DALInterfaces<SatisContrac
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				satisContract = new SatisContract();
-				satisContract.setId(resultSet.getInt("satis_id"));
+				satisContract.setSatisId(resultSet.getInt("satis_id"));
 				satisContract.setMusteriId(resultSet.getInt("musteri_id"));
-				satisContract.setPersonelId(resultSet.getInt("personel_id"));
+				satisContract.setHesapId(resultSet.getInt("personel_id"));
 				satisContract.setUrunId(resultSet.getInt("urun_id"));
 				satisContract.setAdet(resultSet.getInt("adet"));
 				satisContract.setTarih(resultSet.getDate("tarih"));
