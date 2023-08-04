@@ -1,11 +1,11 @@
 package tr.com.yusuf.types;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class SatisContract {
-	private int id;
+	private int satisId;
 	private int musteriId;
-	private int personelId;
+	private int hesapId;
 	private int urunId;
 	private int adet;
 	private Date tarih;
@@ -26,16 +26,16 @@ public class SatisContract {
 		return tarih;
 	}
 
-	public void setTarih(Date tarih) {
-		this.tarih = tarih;
+	public void setTarih(Date date) {
+		this.tarih = date;
 	}
 
-	public int getId() {
-		return this.id;
+	public int getSatisId() {
+		return this.satisId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setSatisId(int id) {
+		this.satisId = id;
 	}
 
 	public int getMusteriId() {
@@ -54,12 +54,12 @@ public class SatisContract {
 		this.urunId = urunId;
 	}
 
-	public int getPersonelId() {
-		return personelId;
+	public int getHesapId() {
+		return hesapId;
 	}
 
-	public void setPersonelId(int personelId) {
-		this.personelId = personelId;
+	public void setHesapId(int hesapId) {
+		this.hesapId = hesapId;
 	}
 
 }
