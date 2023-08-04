@@ -2,13 +2,14 @@ package tr.com.yusuf.types;
 
 public class HesaplarContract {
 
-	private int id;
+	private int id; // session degiskenine at
 	private int yetkiId;
 	private int personelId;
 	private String ad;
 	private String soyad;
 	private String ePosta;
 	private String sifre;
+	public static int sessionId;
 
 	public int getId() {
 		return id;
