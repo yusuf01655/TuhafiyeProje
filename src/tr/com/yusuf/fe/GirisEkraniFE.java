@@ -1,6 +1,9 @@
 package tr.com.yusuf.fe;
 
+import java.math.BigInteger;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import tr.com.yusuf.core.ObjectHelper;
 import tr.com.yusuf.dal.HesaplarDAL;
 import tr.com.yusuf.interfaces.FeInterfaces;
 
@@ -30,6 +34,44 @@ public class GirisEkraniFE implements FeInterfaces {
 
 	@FXML
 	private Button buttonGirisYap;
+	@FXML
+	private Button md5button;
+	@FXML
+	private TextField md5field;
+
+	@FXML
+	void md5Button_OnAction(ActionEvent event) {
+
+		md5field.setText(new ObjectHelper().MD5Encrypt(md5field.getText()));
+		// System.out.println(getMd5("12345"));
+	}
+
+	public String getMd5(String input) {
+		try {
+
+			// Static getInstance method is called with hashing MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+
+			// digest() method is called to calculate message digest
+			// of an input digest() return array of byte
+			byte[] messageDigest = md.digest(input.getBytes());
+
+			// Convert byte array into signum representation
+			BigInteger no = new BigInteger(1, messageDigest);
+
+			// Convert message digest into hex value
+			String hashtext = no.toString(16);
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		}
+
+		// For specifying wrong message digest algorithms
+		catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	public GirisEkraniFE() {
 
