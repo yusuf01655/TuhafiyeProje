@@ -1,18 +1,37 @@
 package tr.com.yusuf.fe;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import tr.com.yusuf.complex.types.SatisContractComplex;
+import tr.com.yusuf.dal.MusteriDAL;
+import tr.com.yusuf.dal.SatisDAL;
+import tr.com.yusuf.dal.UrunlerDAL;
 import tr.com.yusuf.interfaces.FeInterfaces;
+import tr.com.yusuf.interfaces.IFetchableDataFromDatabaseToTable;
+import tr.com.yusuf.types.HesaplarContract;
+import tr.com.yusuf.types.MusteriContract;
+import tr.com.yusuf.types.SatisContract;
+import tr.com.yusuf.types.UrunlerContract;
 
-public class AnaPencereFEController implements FeInterfaces {
+public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromDatabaseToTable {
 	@FXML
 	private ResourceBundle resources;
 
@@ -101,6 +120,69 @@ public class AnaPencereFEController implements FeInterfaces {
 	private MenuItem menuItemKategoriGoster;
 	@FXML
 	private MenuItem menuItemIdIleKategoriGoster;
+	@FXML
+	private MenuItem menuItemKategoriSil;
+	@FXML
+	private Button buttonSatisYap;
+	@FXML
+	private TextField textFieldAdet;
+	@FXML
+	private ComboBox<UrunlerContract> comboBoxSatisUrunAdi;
+
+	@FXML
+	private ComboBox<MusteriContract> comboBoxSatisMusteriAdi;
+	@FXML
+	private DatePicker datePickerSatisTarihi;
+	@FXML
+	private TableView<SatisContractComplex> tableViewSatislar;
+
+	@FXML
+	private TableColumn<SatisContractComplex, Integer> tableColumnSatisId;
+
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnPersonelAdi;
+
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnUrunAdi;
+
+	@FXML
+	private TableColumn<SatisContractComplex, Integer> tableColumnAdeti;
+
+	@FXML
+	private TableColumn<SatisContractComplex, Date> tableColumnTarihi;
+
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnMusteriAdi;
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnHesapAdi;
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnHesapSoyadi;
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnMusteriSoyadi;
+	@FXML
+	private TableColumn<SatisContractComplex, String> tableColumnMusteriId;
+
+	@FXML
+	void buttonSatisYap_OnAction(ActionEvent event) {
+		// HesaplarContract hesaplarContract =
+
+		UrunlerContract urunlerContract = comboBoxSatisUrunAdi.getSelectionModel().getSelectedItem();
+		MusteriContract musteriContract = comboBoxSatisMusteriAdi.getSelectionModel().getSelectedItem();
+		SatisContract satisContract = new SatisContract();
+
+		// datePickerSatisTarihi.
+		LocalDate localDate = datePickerSatisTarihi.getValue();
+
+		satisContract.setMusteriId(musteriContract.getId());
+		satisContract.setHesapId(HesaplarContract.sessionId);
+		satisContract.setUrunId(urunlerContract.getId());
+		satisContract.setAdet(Integer.valueOf(textFieldAdet.getText()));
+		satisContract.setTarih(Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		new SatisDAL().ekle(satisContract);
+
+		// tabloya da ekle
+		fetchDataFromDatabaseToTable();
+	}
 
 	@FXML
 	void menuItemBorcDuzenle_OnAction(ActionEvent event) {
@@ -251,6 +333,8 @@ public class AnaPencereFEController implements FeInterfaces {
 
 	@FXML
 	void initialize() {
+		comboBoxSatisUrunAdi.getItems().addAll(new UrunlerDAL().hepsiniAl());
+		comboBoxSatisMusteriAdi.getItems().addAll(new MusteriDAL().hepsiniAl());
 
 	}
 
@@ -268,6 +352,22 @@ public class AnaPencereFEController implements FeInterfaces {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	@Override
+	public void fetchDataFromDatabaseToTable() {
+
+		tableColumnSatisId.setCellValueFactory(new PropertyValueFactory<>("satisId"));
+		tableColumnHesapAdi.setCellValueFactory(new PropertyValueFactory<>("hesapAdi"));
+		tableColumnHesapSoyadi.setCellValueFactory(new PropertyValueFactory<>("hesapSoyadi"));
+		tableColumnUrunAdi.setCellValueFactory(new PropertyValueFactory<>("urunAdi"));
+		tableColumnAdeti.setCellValueFactory(new PropertyValueFactory<>("satisAdet"));
+		tableColumnUrunAdi.setCellValueFactory(new PropertyValueFactory<>("satisTarih"));
+		tableColumnMusteriAdi.setCellValueFactory(new PropertyValueFactory<>("musteriAd"));
+		tableColumnMusteriSoyadi.setCellValueFactory(new PropertyValueFactory<>("musteriSoyad"));
+		tableColumnMusteriAdi.setCellValueFactory(new PropertyValueFactory<>("musteriId"));
+		tableViewSatislar.setItems(new SatisDAL().satislarinHepsiniAl());
 
 	}
 
