@@ -195,53 +195,8 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	}
 
 	@FXML
-	void menuItemBorcGoster_OnAction(ActionEvent event) {
-		new BorcGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemBorcSil_OnAction(ActionEvent event) {
-		new BorcSilFE().initPencere();
-	}
-
-	@FXML
-	void menuItemIdIleBorcGoster_OnAction(ActionEvent event) {
-		new IdIleBorcGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemIdIleMusteriGoster_OnAction(ActionEvent event) {
-		new IdIleMusteriGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemIdIlePersonelGoster_OnAction(ActionEvent event) {
-		new IdIlePersonelGoster().initPencere();
-	}
-
-	@FXML
-	void menuItemIdIleUrunGoster_OnAction(ActionEvent event) {
-		new IdIleUrunGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemIdIleYetkiGoster_OnAction(ActionEvent event) {
-		new IdIleYetkiGosterFE().initPencere();
-	}
-
-	@FXML
 	void menuItemMusteriDuzenle_OnAction(ActionEvent event) {
 		new MusteriDuzenleFE().initPencere();
-	}
-
-	@FXML
-	void menuItemMusteriGoster_OnAction(ActionEvent event) {
-		new MusteriGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemMusteriSil_OnAction(ActionEvent event) {
-		new MusteriSilFE().initPencere();
 	}
 
 	@FXML
@@ -255,16 +210,6 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	}
 
 	@FXML
-	void menuItemPersonelGoster_OnAction(ActionEvent event) {
-		new PersonelGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemPersonelSil_OnAction(ActionEvent event) {
-		new PersonelSilFE().initPencere();
-	}
-
-	@FXML
 	void menuItemUrunDuzenle_OnAction(ActionEvent event) {
 		new UrunDuzenleFE().initPencere();
 	}
@@ -275,28 +220,8 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	}
 
 	@FXML
-	void menuItemUrunGoster_OnAction(ActionEvent event) {
-		new UrunGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemUrunSil_OnAction(ActionEvent event) {
-		new UrunSilFE().initPencere();
-	}
-
-	@FXML
 	void menuItemYetkiDuzenle_OnAction(ActionEvent event) {
 		new YetkiDuzenleFE().initPencere();
-	}
-
-	@FXML
-	void menuItemYetkiGoster_OnAction(ActionEvent event) {
-		new YetkiGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemYetkiSil_OnAction(ActionEvent event) {
-		new YetkiSilFE().initPencere();
 	}
 
 	@FXML
@@ -311,31 +236,16 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	}
 
 	@FXML
-	void menuItemKategoriSil_OnAction(ActionEvent event) {
-		new KategoriSilFE().initPencere();
-	}
-
-	@FXML
 	void menuItemKategoriDuzenle_OnAction(ActionEvent event) {
 		new KategoriDuzenleFE().initPencere();
 
 	}
 
 	@FXML
-	void menuItemKategoriGoster_OnAction(ActionEvent event) {
-		new KategoriGosterFE().initPencere();
-	}
-
-	@FXML
-	void menuItemIdIleKategoriGoster_OnAction(ActionEvent event) {
-		new IdIleKategoriGosterFE().initPencere();
-	}
-
-	@FXML
 	void initialize() {
 		comboBoxSatisUrunAdi.getItems().addAll(new UrunlerDAL().hepsiniAl());
 		comboBoxSatisMusteriAdi.getItems().addAll(new MusteriDAL().hepsiniAl());
-
+		fetchDataFromDatabaseToTable();
 	}
 
 	@Override
