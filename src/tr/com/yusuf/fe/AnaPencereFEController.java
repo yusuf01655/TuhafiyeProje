@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -37,6 +38,8 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 
 	@FXML
 	private URL location;
+	@FXML
+	private Menu menuYetkiler;
 
 	@FXML
 	private MenuItem menuItemYetkiEkle;
@@ -161,6 +164,11 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	private TableColumn<SatisContractComplex, String> tableColumnMusteriSoyadi;
 	@FXML
 	private TableColumn<SatisContractComplex, String> tableColumnMusteriId;
+
+	@FXML
+	void menuYetkiler_OnAction(ActionEvent event) {
+		new YetkilerFE().initPencere();
+	}
 
 	@FXML
 	void buttonSatisYap_OnAction(ActionEvent event) {

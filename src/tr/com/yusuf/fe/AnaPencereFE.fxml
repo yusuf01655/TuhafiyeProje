@@ -16,7 +16,7 @@
 
 <AnchorPane minHeight="400.0" minWidth="400.0" prefHeight="407.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.AnaPencereFEController">
    <children>
-      <MenuBar layoutX="6.0" layoutY="6.0" prefHeight="32.0" prefWidth="653.0">
+      <MenuBar layoutX="6.0" layoutY="6.0" prefHeight="32.0" prefWidth="829.0">
         <menus>
           <Menu mnemonicParsing="false" text="Dosya">
             <items>
@@ -26,55 +26,62 @@
           <Menu mnemonicParsing="false" text="Ürünler">
             <items>
               <MenuItem fx:id="menuItemUrunEkle" mnemonicParsing="false" onAction="#menuItemUrunEkle_OnAction" text="Ürün Ekle" />
-                  <MenuItem fx:id="menuItemUrunSil" mnemonicParsing="false" onAction="#menuItemUrunSil_OnAction" text="Ürün Sil" />
+                  
                   <MenuItem fx:id="menuItemUrunDuzenle" mnemonicParsing="false" onAction="#menuItemUrunDuzenle_OnAction" text="Ürünü Düzenle" />
-                  <MenuItem fx:id="menuItemUrunGoster" mnemonicParsing="false" onAction="#menuItemUrunGoster_OnAction" text="Ürün Göster" />
-                  <MenuItem fx:id="menuItemIdIleUrunGoster" mnemonicParsing="false" onAction="#menuItemIdIleUrunGoster_OnAction" text="ID ile ürün göster" />
+               
+               
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Personeller">
             <items>
                   <MenuItem fx:id="menuItemPersonelEkle" mnemonicParsing="false" onAction="#menuItemPersonelEkle_OnAction" text="Personel Ekle" />
-                  <MenuItem fx:id="menuItemPersonelSil" mnemonicParsing="false" onAction="#menuItemPersonelSil_OnAction" text="Personel Sil" />
+                 
                   <MenuItem fx:id="menuItemPersonelDuzenle" mnemonicParsing="false" onAction="#menuItemPersonelDuzenle_OnAction" text="Personel Düzenle" />
-                  <MenuItem fx:id="menuItemPersonelGoster" mnemonicParsing="false" onAction="#menuItemPersonelGoster_OnAction" text="Personel Göster" />
-                  <MenuItem fx:id="menuItemIdIlePersonelGoster" mnemonicParsing="false" onAction="#menuItemIdIlePersonelGoster_OnAction" text="ID ile Personel göster" />
+                 
+                 
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Borçlar">
               <items>
                   <MenuItem fx:id="menuItemBorcEkle" mnemonicParsing="false" onAction="#menuItemBorcEkle_OnAction" text="Borç Ekle" />
-                  <MenuItem fx:id="menuItemBorcSil" mnemonicParsing="false" onAction="#menuItemBorcSil_OnAction" text="Borç Sil" />
+                 
                   <MenuItem fx:id="menuItemBorcDuzenle" mnemonicParsing="false" onAction="#menuItemBorcDuzenle_OnAction" text="Borç Düzenle" />
-                  <MenuItem fx:id="menuItemBorcGoster" mnemonicParsing="false" onAction="#menuItemBorcGoster_OnAction" text="Borç Göster" />
-                  <MenuItem fx:id="menuItemIdIleBorcGoster" mnemonicParsing="false" onAction="#menuItemIdIleBorcGoster_OnAction" text="ID ile Borç Göster" />
+                 
+                 
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Müşteriler">
               <items>
                   <MenuItem fx:id="menuItemMusteriEkle" mnemonicParsing="false" onAction="#menuItemUrunEkle_OnAction" text="Müşteri Ekle" />
-                  <MenuItem fx:id="menuItemMusteriSil" mnemonicParsing="false" onAction="#menuItemMusteriSil_OnAction" text="Müşteri Sil" />
+                 
                   <MenuItem fx:id="menuItemMusteriDuzenle" mnemonicParsing="false" onAction="#menuItemMusteriDuzenle_OnAction" text="Müşteri  Düzenle" />
-                  <MenuItem fx:id="menuItemMusteriGoster" mnemonicParsing="false" onAction="#menuItemMusteriGoster_OnAction" text="Müşteri Göster" />
-                  <MenuItem fx:id="menuItemIdIleMusteriGoster" mnemonicParsing="false" onAction="#menuItemIdIleMusteriGoster_OnAction" text="ID ile Müşteri Göster" />
+                 
+                 
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Yetkiler">
-              <items>
-                <MenuItem fx:id="menuItemYetkiEkle" mnemonicParsing="false" onAction="#menuItemYetkiEkle_OnAction" text="Yetki Ekle" />
-                  <MenuItem fx:id="menuItemYetkiSil" mnemonicParsing="false" onAction="#menuItemYetkiSil_OnAction" text="Yetki Sil" />
-                  <MenuItem fx:id="menuItemYetkiDuzenle" mnemonicParsing="false" onAction="#menuItemYetkiDuzenle_OnAction" text="Yetki Düzenle" />
-                  <MenuItem fx:id="menuItemYetkiGoster" mnemonicParsing="false" onAction="#menuItemYetkiGoster_OnAction" text="Yetki Göster" />
-                  <MenuItem fx:id="menuItemIdIleYetkiGoster" mnemonicParsing="false" onAction="#menuItemIdIleYetkiGoster_OnAction" text="ID ile Yetki göster" />
-              </items>
+               <items>
+                <MenuItem fx:id="menuItemYetkiEkle" mnemonicParsing="false" onAction="#menuYetkiler_OnAction" text="Yetki" />
+               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Kategoriler">
               <items>
                 <MenuItem fx:id="menuItemKategoriEkle" mnemonicParsing="false" onAction="#menuItemKategoriEkle_OnAction" text="Kategori Ekle" />
-                  <MenuItem fx:id="menuItemKategoriSil" mnemonicParsing="false" onAction="#menuItemKategoriSil_OnAction" text="Kategori Sil" />
+                 
                   <MenuItem fx:id="menuItemKategoriDuzenle" mnemonicParsing="false" onAction="#menuItemKategoriDuzenle_OnAction" text="Kategori Düzenle" />
-                  <MenuItem fx:id="menuItemKategoriGoster" mnemonicParsing="false" onAction="#menuItemKategoriGoster_OnAction" text="Kategori Goster" />
-                  <MenuItem fx:id="menuItemIdIleKategoriGoster" mnemonicParsing="false" onAction="#menuItemIdIleKategoriGoster_OnAction" text="Id Ile Kategori" />
+                 
+                  <MenuItem fx:id="menuItemYetkiDuzenle" mnemonicParsing="false" onAction="#menuItemYetkiDuzenle_OnAction" text="Yetki Düzenle" />
+                 
+                 
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Üst Kategoriler">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Üst Kategori Ekle" />
+                  <MenuItem mnemonicParsing="false" text="Üst Kategori Sil" />
+                  <MenuItem mnemonicParsing="false" text="Üst Kategori güncelle" />
+                  <MenuItem mnemonicParsing="false" text="Üst Kategorileri Göster" />
+                  <MenuItem mnemonicParsing="false" text="Id İle Üst Kategorileri Göster" />
               </items>
             </Menu>
         </menus>

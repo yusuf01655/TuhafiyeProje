@@ -4,21 +4,35 @@ public class YetkilerContract {
 
 	private int id;
 	private String ad;
-	
-	public int getId(){
+
+	public YetkilerContract() {
+
+	}
+
+	public YetkilerContract(int id, String ad) {
+
+		this.id = id;
+		this.ad = ad;
+	}
+
+	public int getId() {
 		return this.id;
 	}
-	public void setId(int id){
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAd(){
+
+	public String getAd() {
 		return this.ad;
 	}
-	public void setAd(String ad){
-		 this.ad = ad;
+
+	public void setAd(String ad) {
+		this.ad = ad;
 	}
+
 	@Override
-	public String toString(){
-		return String.format("%d %s",id,ad);
+	public String toString() {
+		return String.format("%d %s", id, ad);
 	}
 }

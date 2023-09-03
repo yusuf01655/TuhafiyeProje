@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import tr.com.yusuf.business.YetkiManager;
 import tr.com.yusuf.dal.YetkilerDAL;
 import tr.com.yusuf.interfaces.FeInterfaces;
 import tr.com.yusuf.types.YetkilerContract;
@@ -34,7 +35,8 @@ public class YetkiEkleFE implements FeInterfaces {
 	void btnEkle_OnAction(ActionEvent event) {
 		YetkilerContract yetkilerContract = new YetkilerContract();
 		yetkilerContract.setAd(textFieldYetkiAdi.getText());
-		new YetkilerDAL().ekle(yetkilerContract);
+		// new YetkilerDAL().ekle(yetkilerContract); //eskisi
+		new YetkiManager(new YetkilerDAL()).ekle(yetkilerContract);
 
 		// bilgi mesaji
 		Alert alert = new Alert(AlertType.INFORMATION);
