@@ -82,6 +82,7 @@
                   <MenuItem mnemonicParsing="false" text="Üst Kategori güncelle" />
                   <MenuItem mnemonicParsing="false" text="Üst Kategorileri Göster" />
                   <MenuItem mnemonicParsing="false" text="Id İle Üst Kategorileri Göster" />
+                  <MenuItem fx:id="menuItemUstKategori" mnemonicParsing="false" onAction="#menuItemUstKategori_OnAction" text="Üst Kategori" />
               </items>
             </Menu>
         </menus>

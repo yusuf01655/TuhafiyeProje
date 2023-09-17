@@ -126,6 +126,8 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	@FXML
 	private MenuItem menuItemKategoriSil;
 	@FXML
+	private MenuItem menuItemUstKategori;
+	@FXML
 	private Button buttonSatisYap;
 	@FXML
 	private TextField textFieldAdet;
@@ -168,6 +170,11 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	@FXML
 	void menuYetkiler_OnAction(ActionEvent event) {
 		new YetkilerFE().initPencere();
+	}
+
+	@FXML
+	void menuItemUstKategori_OnAction(ActionEvent event) {
+		new UstKategoriFE().initPencere();
 	}
 
 	@FXML
@@ -274,7 +281,7 @@ public class AnaPencereFEController implements FeInterfaces, IFetchableDataFromD
 	}
 
 	@Override
-	public void fetchDataFromDatabaseToTable() {
+	public void fetchDataFromDatabaseToTable(String... sutunAdi) {
 
 		tableColumnSatisId.setCellValueFactory(new PropertyValueFactory<>("satisId"));
 		tableColumnHesapAdi.setCellValueFactory(new PropertyValueFactory<>("hesapAdi"));
