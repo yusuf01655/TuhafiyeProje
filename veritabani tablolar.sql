@@ -45,7 +45,7 @@
 	
 	CREATE TABLE ust_kategoriler(
 	    PRIMARY KEY(ust_kategori_id),
-	    ust_kategori_id INT NOT NULL,
+	    ust_kategori_id INT AUTO_INCREMENT NOT NULL,
 	    adi             VARCHAR(255) DEFAULT 'ad'
   	    
 	);
