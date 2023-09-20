@@ -5,13 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tr.com.yusuf.fe.GirisEkraniFE">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.yusuf.fe.GirisEkraniFE">
    <children>
       <Label layoutX="78.0" layoutY="140.0" text="E-posta:" />
       <Label layoutX="78.0" layoutY="180.0" text="Şifre:" />
-      <TextField fx:id="textFieldEPosta" layoutX="135.0" layoutY="135.0" />
-      <TextField fx:id="textFieldSifre" layoutX="135.0" layoutY="175.0" />
+      <TextField fx:id="textFieldEPosta" layoutX="135.0" layoutY="135.0" text="abc@mail.com" />
+      <TextField fx:id="textFieldSifre" layoutX="135.0" layoutY="175.0" text="12345" />
       <Button fx:id="buttonGirisYap" layoutX="243.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonGirisYap_OnAction" text="Giriş Yap" />
    </children>
 </AnchorPane>
