@@ -1,5 +1,5 @@
 package tr.com.yusuf.interfaces;
 
 public interface IFetchableDataFromDatabaseToTable {
-	void fetchDataFromDatabaseToTable();
+	void fetchDataFromDatabaseToTable(String... sutunAdi);
 }
