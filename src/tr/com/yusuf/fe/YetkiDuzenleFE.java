@@ -53,7 +53,7 @@ public class YetkiDuzenleFE implements FeInterfaces {
 
 		// bilgi mesaji
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Ekleme iþlemi");
+		alert.setTitle("Guncelleme iþlemi");
 		alert.setHeaderText(null);
 		alert.setContentText("Yetki basariyla GUNCELLENDI.");
 		alert.showAndWait();

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tr.com.yusuf.fe.YetkiEkleFE">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tr.com.yusuf.fe.UrunEkleFE">
    <children>
       <TextField fx:id="textFieldYetkiAdi" layoutX="103.0" layoutY="185.0" />
       <Label layoutX="103.0" layoutY="148.0" text="Eklenecek yeni yetkiyi giriniz" />
